@@ -94,6 +94,15 @@ public class CodeGenerator {
                             .formatXmlFileName("%sMapper") //格式化Xml文件名称
                             .formatMapperFileName("%sMapper");   //格式化Mapper文件名称
                 })
+                .templateConfig(builder -> {
+                    builder.entity("templates/entity.java")
+                            .controller("templates/controller.java")
+                            .service("templates/service.java")
+                            .serviceImpl("templates/serviceImpl.java")
+                            .mapper("templates/mapper.java")
+                            .xml("templates/mapper.xml")
+                    ;
+                })
                 .templateEngine(new FreemarkerTemplateEngine())	//本人选择了Freemarker
                 //6、执行
                 .execute();
